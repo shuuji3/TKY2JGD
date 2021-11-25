@@ -4,7 +4,7 @@
 
 オリジナルのTKY2JGDは<http://vldb.gsi.go.jp/sokuchi/tky2jgd/download/down.cgi>からダウンロードできます。
 
-座標変換パラメータファイル`data/TKY2JGD.par`はv2.1.1を使用しています。
+座標変換パラメータファイル`data/TKY2JGD.par`はv2.1.2を使用しています。
 
 ## Usage
 
