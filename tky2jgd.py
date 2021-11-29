@@ -165,8 +165,7 @@ def lat_lon2mesh_code(lat, lon):
 
 def tonari_mesh_code(mesh_code):
     """
-    :type lat: float
-    :type lon: float
+    :type mesh_code: MeshCode
     :rtype: tuple of MeshCode
     :return: (mesh_code_east, mesh_code_north, mesh_code_north_east)
 
