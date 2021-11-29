@@ -104,7 +104,7 @@ class MeshCode(object):
 
     @property
     def mesh_code_str(self):
-        return "{:04d}-{:02d}-{02d}".format(
+        return "{:04d}-{:02d}-{:02d}".format(
             self.mesh_code1,
             self.mesh_code2,
             self.mesh_code3
