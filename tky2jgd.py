@@ -11,6 +11,7 @@ import re
 
 PAR_RE = re.compile(r"(\d+)\s+(-?\d+\.\d+)\s+(-?\d+\.\d+)")
 
+
 def load_parameter(par_file):
     global PAR
     PAR = {}
@@ -19,6 +20,7 @@ def load_parameter(par_file):
         if not m:
             continue
         PAR[int(m.group(1))] = (float(m.group(2)), float(m.group(3)))
+
 
 PAR = {}
 
@@ -47,10 +49,10 @@ def bilinear(lat, lon):
     # MC0の東，北，東北隣のメッシュコードを計算
     MCE, MCN, MCNE = tonari_mesh_code(MC0)
 
-    if ( MC0.mesh_code123 not in PAR or
-         MCE.mesh_code123 not in PAR or
-         MCN.mesh_code123 not in PAR or
-         MCNE.mesh_code123 not in PAR ):
+    if (MC0.mesh_code123 not in PAR or
+            MCE.mesh_code123 not in PAR or
+            MCN.mesh_code123 not in PAR or
+            MCNE.mesh_code123 not in PAR):
         return None, None
 
     dB00, dL00 = PAR[MC0.mesh_code123]
@@ -97,7 +99,7 @@ class MeshCode(object):
     @property
     def mesh_code123(self):
         return (
-            self.mesh_code1 * 10000 + self.mesh_code2 * 100 + self.mesh_code3
+                self.mesh_code1 * 10000 + self.mesh_code2 * 100 + self.mesh_code3
         )
 
     @property
@@ -107,6 +109,7 @@ class MeshCode(object):
             self.mesh_code2,
             self.mesh_code3
         )
+
 
 def lat_lon2mesh_code(lat, lon):
     """
@@ -145,15 +148,15 @@ def lat_lon2mesh_code(lat, lon):
             lon2 = 0
 
     # 3次メッシの左下（南西角）点から何度ずれているか？
-    mlat = 120.0 * lat - 80.0 * lat1 - 10 * lat2 - lat3 # 余り。3次メッシの左下（南西角）点からどれくらいずれているか。0(西端)以上1(東端)未満
-    mlon = 80.0 * (lon - (lon1 + 100)) - 10 * lon2 - lon3 # 余り。3次メッシの左下（南西角）点からどれくらいずれているか。0(南端)以上1(北端)未満
+    mlat = 120.0 * lat - 80.0 * lat1 - 10 * lat2 - lat3  # 余り。3次メッシの左下（南西角）点からどれくらいずれているか。0(西端)以上1(東端)未満
+    mlon = 80.0 * (lon - (lon1 + 100)) - 10 * lon2 - lon3  # 余り。3次メッシの左下（南西角）点からどれくらいずれているか。0(南端)以上1(北端)未満
 
     # 計算値のチェック
-    assert(lat2 >= 0 and lat2 <= 7)
-    assert(lon2 >= 0 and lon2 <= 7)
-    assert(lat3 >= 0 and lat3 <= 9)
-    assert(lon3 >= 0 and lon3 <= 9)
-    
+    assert (lat2 >= 0 and lat2 <= 7)
+    assert (lon2 >= 0 and lon2 <= 7)
+    assert (lat3 >= 0 and lat3 <= 9)
+    assert (lon3 >= 0 and lon3 <= 9)
+
     mc1 = int(lat1 * 100 + lon1)
     mc2 = int(lat2 * 10 + lon2)
     mc3 = int(lat3 * 10 + lon3)
@@ -223,8 +226,6 @@ def tonari_mesh_code(mesh_code):
     mesh_code_north_east = MeshCode(mc1, mc2, mc3)
 
     return mesh_code_east, mesh_code_north, mesh_code_north_east
-
-
 
 
 def main(argv):
