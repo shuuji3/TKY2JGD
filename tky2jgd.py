@@ -5,6 +5,7 @@ from __future__ import print_function
 from __future__ import division
 
 import argparse
+import pickle
 
 import sys
 import os
@@ -254,6 +255,13 @@ def main(argv):
         print(lat, lon)
 
     return 0
+
+
+def dump_parameter_by_pickle(parameter_file_path, pickle_save_path):
+    load_parameter(parameter_file_path)
+    with open(pickle_save_path, 'wb') as f:
+        pickle.dump(PAR, f)
+    print(f'Saved `{parameter_file_path}` as a pickled dump `{pickle_save_path}`')
 
 
 if __name__ == "__main__":
