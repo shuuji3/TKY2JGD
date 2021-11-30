@@ -237,10 +237,14 @@ def main(argv):
     parser.add_argument("latitude", type=float)
     parser.add_argument("longitude", type=float)
     parser.add_argument("--par", default="data/TKY2JGD.par")
+    parser.add_argument("--use-pickle", action='store_true')
+    parser.add_argument("--pickle-par", default="data/TKY2JGD.pkl")
 
     args = parser.parse_args(argv)
 
-    if not os.path.exists(args.par):
+    if args.use_pickle:
+        load_parameter_by_pickle(args.pickle_par)
+    elif not os.path.exists(args.par):
         print("Error: Parameter file not found. \"{}\"".format(args.par), file=sys.stderr)
         return 1
     else:
@@ -262,6 +266,12 @@ def dump_parameter_by_pickle(parameter_file_path, pickle_save_path):
     with open(pickle_save_path, 'wb') as f:
         pickle.dump(PAR, f)
     print(f'Saved `{parameter_file_path}` as a pickled dump `{pickle_save_path}`')
+
+
+def load_parameter_by_pickle(pickle_save_path):
+    global PAR
+    with open(pickle_save_path, 'br') as f:
+        PAR = pickle.load(f)
 
 
 if __name__ == "__main__":
