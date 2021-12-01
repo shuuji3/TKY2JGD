@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "tky2jgd"
+version = "0.1.0"
+description = "Python port of TKY2JGD to transform coordinates from Tokyo Datum (EPSG:4301) to JGD2000 (EPSG:4612)"
+authors = ["TAKAHASHI Shuuji <shuuji3@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
