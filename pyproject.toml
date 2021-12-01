@@ -3,6 +3,11 @@ name = "tky2jgd"
 version = "0.1.0"
 description = "Python port of TKY2JGD to transform coordinates from Tokyo Datum (EPSG:4301) to JGD2000 (EPSG:4612)"
 authors = ["TAKAHASHI Shuuji <shuuji3@gmail.com>"]
+maintainers = ["TAKAHASHI Shuuji <shuuji3@gmail.com>"]
+license = "BSD-3-Clause"
+readme = "README.md"
+repository = "https://github.com/shuuji3/TKY2JGD"
+include = ["data/"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
