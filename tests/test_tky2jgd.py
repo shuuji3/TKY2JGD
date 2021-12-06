@@ -33,3 +33,23 @@ class Test(TestCase):
         assert west.mesh_code_str == expected_mash['east'].mesh_code_str
         assert north.mesh_code_str == expected_mash['north'].mesh_code_str
         assert north_west.mesh_code_str == expected_mash['north_east'].mesh_code_str
+
+
+class TestMeshCode(TestCase):
+    def setUp(self) -> None:
+        self.mesh_codes = [
+            MeshCode(1234, 56, 78),
+            MeshCode(1, 2, 3),
+            MeshCode(1234, 56, 78),
+        ]
+
+    def test_mesh_code123(self):
+        assert self.mesh_codes[0].mesh_code123 == 12345678
+        assert self.mesh_codes[1].mesh_code123 == 10203
+        assert self.mesh_codes[2].mesh_code123 == 12345678
+
+    def test_mesh_code_str(self):
+        assert self.mesh_codes[0].mesh_code_str == '1234-56-78'
+        assert self.mesh_codes[1].mesh_code_str == '0001-02-03'
+        assert self.mesh_codes[2].mesh_code_str == '1234-56-78'
+
