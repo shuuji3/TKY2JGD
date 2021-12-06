@@ -48,6 +48,15 @@ class Test(TestCase):
         assert north.mesh_code_str == expected_mash['north'].mesh_code_str
         assert north_west.mesh_code_str == expected_mash['north_east'].mesh_code_str
 
+    def test_bilinear(self):
+        load_parameter('../tky2jgd/data/TKY2JGD.par')
+        # Original First-class Triangulation Point at the Japan GSI Tsukuba
+        lat, lon = 36.100578889, 140.091149167
+        dB, dL = bilinear(lat, lon)
+        lat += dB / 3600
+        lon += dL / 3600
+        assert (lat, lon) == (36.10377077065109, 140.08787082896106)
+
 
 class TestMeshCode(TestCase):
     def setUp(self) -> None:
@@ -66,4 +75,3 @@ class TestMeshCode(TestCase):
         assert self.mesh_codes[0].mesh_code_str == '1234-56-78'
         assert self.mesh_codes[1].mesh_code_str == '0001-02-03'
         assert self.mesh_codes[2].mesh_code_str == '1234-56-78'
-
