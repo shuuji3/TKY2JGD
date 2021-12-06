@@ -19,6 +19,20 @@ class Test(TestCase):
         mesh_code = lat_lon2mesh_code(*south_east_of_tokyo_tower['lat_lng'])
         assert mesh_code.mesh_code_str == south_east_of_tokyo_tower['mesh_code']
 
+        edge_case_1 = {
+            'lat_lng': [36.0833333333333, 139.0833333333333],
+            'mesh_code': '5439-10-06',
+        }
+        mesh_code = lat_lon2mesh_code(*edge_case_1['lat_lng'])
+        assert mesh_code.mesh_code_str == edge_case_1['mesh_code']
+
+        edge_case_2 = {
+            'lat_lng': [36.0833333333333, 138.45],
+            'mesh_code': '5438-13-06',
+        }
+        mesh_code = lat_lon2mesh_code(*edge_case_2['lat_lng'])
+        assert mesh_code.mesh_code_str == edge_case_2['mesh_code']
+
     def test_tonari_mesh_code(self):
         # You can use this website to find the adjacent mesh codes:
         # 地域メッシュ - MULTISOUP - https://maps.multisoup.co.jp/exsample/mesh/mesh_search.html
