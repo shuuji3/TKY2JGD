@@ -25,3 +25,10 @@ $ python3 tky2jgd.py 36.103774791666666 140.08785504166664
 >>> print(lat, lon)
 36.10696628160147 140.08457686629436
 ```
+
+## Credits
+
+- Original application TKY2JGD developed by Japan GSI: http://vldb.gsi.go.jp/sokuchi/tky2jgd/download/down.cgi
+- Original Python port: https://github.com/mugwort-rc/TKY2JGD
+
+This repository updates and refactors codes and publishes it as a PyPI package.
