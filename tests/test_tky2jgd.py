@@ -20,6 +20,8 @@ class Test(TestCase):
         assert mesh_code.mesh_code_str == south_east_of_tokyo_tower['mesh_code']
 
     def test_tonari_mesh_code(self):
+        # You can use this website to find the adjacent mesh codes:
+        # 地域メッシュ - MULTISOUP - https://maps.multisoup.co.jp/exsample/mesh/mesh_search.html
         tokyo_tower_mesh = MeshCode(5339, 35, 99)
         expected_mash = {
             'east': MeshCode(5339, 36, 90),
