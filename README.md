@@ -1,5 +1,7 @@
 # TKY2JGD
 
+![PyPI - tky2jgd](https://img.shields.io/pypi/v/tky2jgd)
+
 国土地理院のTKY2JGDをPythonに移植したものです。
 
 オリジナルのTKY2JGDは<http://vldb.gsi.go.jp/sokuchi/tky2jgd/download/down.cgi>からダウンロードできます。
