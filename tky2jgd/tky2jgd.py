@@ -98,9 +98,7 @@ class MeshCode(object):
 
     @property
     def mesh_code123(self):
-        return (
-                self.mesh_code1 * 10000 + self.mesh_code2 * 100 + self.mesh_code3
-        )
+        return self.mesh_code1 * 10000 + self.mesh_code2 * 100 + self.mesh_code3
 
     @property
     def mesh_code_str(self):
