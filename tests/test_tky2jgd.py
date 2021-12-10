@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from tky2jgd import lat_lon2mesh_code, tonari_mesh_code, MeshCode
+from tky2jgd import lat_lon2mesh_code, tonari_mesh_code, MeshCode, load_parameter, bilinear
 
 
 class Test(TestCase):
@@ -49,7 +49,7 @@ class Test(TestCase):
         assert north_west.mesh_code_str == expected_mash['north_east'].mesh_code_str
 
     def test_bilinear(self):
-        load_parameter('../tky2jgd/data/TKY2JGD.par')
+        load_parameter('tky2jgd/data/TKY2JGD.par')
         # Original First-class Triangulation Point at the Japan GSI Tsukuba
         lat, lon = 36.100578889, 140.091149167
         dB, dL = bilinear(lat, lon)
