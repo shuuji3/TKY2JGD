@@ -1,6 +1,7 @@
 # TKY2JGD
 
 ![PyPI - tky2jgd](https://img.shields.io/pypi/v/tky2jgd)
+![pytest status](https://img.shields.io/github/workflow/status/shuuji3/tky2jgd/pytest?label=pytest)
 
 国土地理院のTKY2JGDをPythonに移植したものです。
 
